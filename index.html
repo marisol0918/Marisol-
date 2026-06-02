@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JeniversePH</title>
+
+<style>
+body{
+font-family:Arial,sans-serif;
+background:#f5f5f5;
+padding:20px;
+max-width:600px;
+margin:auto;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 2px 10px rgba(0,0,0,.1);
+}
+
+h1{
+text-align:center;
+}
+
+input,select,textarea,button{
+width:100%;
+padding:12px;
+margin-top:10px;
+margin-bottom:10px;
+border:1px solid #ddd;
+border-radius:8px;
+box-sizing:border-box;
+}
+
+button{
+background:#2563eb;
+color:white;
+border:none;
+font-size:16px;
+}
+
+#result{
+height:220px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>JeniversePH</h1>
+
+<label>MODEL IMAGE</label>
+<input type="file">
+
+<label>PRODUCT IMAGE</label>
+<input type="file">
+
+<select id="angle">
+<option>Eye-Level Hero Shot</option>
+<option>Overhead Flat Lay</option>
+<option>3/4 Portrait Angle</option>
+<option>Dutch Angle/Tilt</option>
+<option>Macro Close-Up</option>
+<option>Low Angle Hero</option>
+<option>Over-the-Shoulder (OTS)</option>
+<option>Walking/Toward Camera</option>
+<option>Mirror Selfie Angle</option>
+<option>POV Unboxing</option>
+</select>
+
+<select id="bg">
+<option>Minimalist White Desk</option>
+<option>Bookshelf Bokeh</option>
+<option>Warm Home Office</option>
+<option>Neon Accent Wall</option>
+<option>Dark Mode Studio</option>
+<option>Studio Backdrop</option>
+<option>YouTube Shelf</option>
+<option>Livestream Setup</option>
+<option>Cozy Cafe Corner</option>
+<option>Kitchen Counter</option>
+</select>
+
+<textarea id="details"
+placeholder="Custom Details"></textarea>
+
+<button onclick="generatePrompt()">
+Generate Composition
+</button>
+
+<textarea id="result"
+placeholder="Generated prompt will appear here"></textarea>
+
+</div>
+
+<script>
+
+function generatePrompt(){
+
+let angle =
+document.getElementById("angle").value;
+
+let bg =
+document.getElementById("bg").value;
+
+let details =
+document.getElementById("details").value;
+
+let prompt =
+`Ultra realistic commercial photography,
+${angle},
+${bg},
+premium advertising campaign,
+professional composition,
+natural lighting,
+shallow depth of field,
+8K quality,
+realistic skin texture,
+${details}`;
+
+document.getElementById("result").value =
+prompt;
+
+}
+
+</script>
+
+</body>
+</html>
